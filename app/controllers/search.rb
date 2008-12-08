@@ -1,8 +1,8 @@
 class Search < Application
   # provides :xml, :yaml, :js
 
-  def index(q)
-    @query = Merb::Parse.unescape(q)
+  def index
+    @query = Merb::Parse.unescape(params[:q]||"")
     pagination = { :per_page => 10, :page => params[:page] }
     @results = [].paginate(pagination)
     @empty_query = (@query.nil? || @query.strip.empty?)

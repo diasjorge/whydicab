@@ -53,7 +53,7 @@ module Admin
       @article = Article.get(id)
       raise NotFound unless @article
       if @article.destroy
-        redirect resource(:articles)
+        redirect url(:admin_articles)
       else
         raise InternalServerError
       end

@@ -20,3 +20,31 @@ Spec::Runner.configure do |config|
 end
 
 require File.join(File.dirname(__FILE__), 'spec_fixtures')
+
+Merb::Test.add_helpers do
+ 
+  def create_default_user
+    unless User.first(:login => "krusty")
+      User.create(:login => "krusty", :password => "klown", :password_confirmation => "klown") or raise "can't create user'"
+    end
+  end
+  
+  def login
+    create_default_user
+    request("/login", {
+      :method => "PUT",
+      :params => {
+        :login => "krusty",
+        :password => "klown"
+      }
+    })
+  end
+  
+end
+
+given "an article exists" do
+  Article.all.destroy!
+  @article = Article.gen(:title => "title",
+                         :body => "body of the article",
+                         :tag_list => 'tag1, tag2')
+end
