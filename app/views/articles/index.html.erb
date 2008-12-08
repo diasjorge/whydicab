@@ -1,0 +1,5 @@
+<% unless @articles.empty? -%>
+  <%= partial(:article, :with => @articles) %>
+<% else -%>
+  There are no articles.
+<% end -%>

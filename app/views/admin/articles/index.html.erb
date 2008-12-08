@@ -1,0 +1,10 @@
+<h1>Mr Dias Blog</h1>
+
+<p>Write an article man: <%= link_to "Click here", url(:new_admin_article) %></p>
+
+<% @articles.each do |article| -%>
+<p>
+  <%= article.title %>
+  <%= link_to "Edit", url(:edit_admin_article, article) %>
+</p>
+<% end -%>

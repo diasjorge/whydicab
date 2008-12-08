@@ -1,0 +1,5 @@
+<h1>Edit Article</h1>
+<%= error_messages_for @article %>
+<%= form_for(@article, :action => url(:admin_article, @article), :class => "article_form") do %>
+  <%= partial "form", :with => @article, :as => :article %>
+<% end =%>

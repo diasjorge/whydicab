@@ -1,0 +1,7 @@
+<h1><%= link_to "Tag: #{@tag.name}", resource(@tag) %></h1>
+<% unless @articles.empty? -%>
+  <%= will_paginate @articles %>
+  <%= partial "articles/article", :with => @articles %>
+<% else -%>
+  <p>There are no articles for this tag</p>
+<% end -%>

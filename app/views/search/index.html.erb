@@ -1,0 +1,6 @@
+<% unless @results.empty? -%>
+  <%= will_paginate @results %>
+  <%= partial "articles/article", :with => @results %>
+<% else -%>
+  <p>There are no articles for this search: <strong><%= @query %></strong></p>
+<% end -%>

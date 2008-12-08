@@ -1,0 +1,19 @@
+<h2>
+  <%= @article.title %> <br/>
+  <span class="entrydate"><%= @article.published_at.to_time if @article.published? %></span>
+</h2>
+<span class="body">
+  <%= RedCloth.new(@article.body || "").to_html %>
+</span>
+
+<p class="center small">
+  <em>posted by <%= @article.user.login %> @ <%= link_to @article.published_at.to_time, url(:article, @article) if @article.published? %></em>
+  <% unless @article.tags.empty? -%>
+  <br />
+  <em>Tags:
+    <% @article.tags.each do |tag| -%>
+    <%= link_to tag.name, url(:tag, tag) %>
+    <% end -%>
+  </em>
+  <% end -%>
+</p>
