@@ -5,7 +5,7 @@
 <%= text_area :body, :label => "Body:", :class => "forminput" %>
 </div>
 <div class="row">
-<%= text_field :tag_list, :label => "Tags:", :class => "forminput" %>
+<%= text_field :tag_list, :value => @article.frozen_tag_list, :label => "Tags:", :class => "forminput" %>
 </div>
 <div class="row">
 <%= check_box :published, :label => "Published?:", :class => "forminput" %>
