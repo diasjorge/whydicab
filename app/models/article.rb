@@ -13,27 +13,14 @@ class Article
 
   belongs_to :user
   has_tags
-  has n, :taggings, :class_name => "Tagging", :child_key => [:taggable_id],
-         :taggable_type => self.to_s
 
   validates_present :body, :if => :published?
   validates_present :user
 
   before :save, :set_published
 
-  before :destroy, :destroy_taggings
-
   def self.find_recent
     self.all(:published => true, :limit => 10, :order => [:published_at.desc])
-  end
-
-  def self.tagged_with(string, options = {})
-    tag = Tag.first(:name => string)
-    conditions = {}
-    conditions['taggings.tag_id'] = tag.id
-    conditions['taggings.tag_context'] = options.delete(:on) if options[:on]
-    conditions.merge!(options)
-    all(conditions)
   end
 
   def to_html
@@ -52,9 +39,5 @@ class Article
     date = self.published_at.strftime("%Y-%m-%d")
     date + "-" + self.title.gsub(/\W+/, ' ').strip.downcase.gsub(/\ +/, '-')
   end  
-
-  def destroy_taggings
-    taggings.destroy!
-  end
 
 end
