@@ -1,0 +1,29 @@
+= Whydicab
+
+Why did I create another blog?
+
+== Install dependencies
+
+The simplest way to do it is using thor.
+
+thor merb:dependencies:install [--local]. The --local to bundle the dependencies in the project dir
+
+After this you'll have to install our bundled gems. Right now it's will_paginate and dm-tags until our changes make it into the official release.
+
+thor merb:gem:install bundle/dm-tags-0.9.8.gem bundle/will_paginate-3.0.0.gem.
+
+Create your database.
+
+That's it.
+
+== Admin user
+
+To create an user, right now you have to use the console.
+
+merb -i 
+
+User.create(:login => 'admin', :password => 'password', :password_confirmation => 'password')
+
+== License
+
+See the file LICENSE.
