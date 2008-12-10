@@ -33,7 +33,7 @@ Merb::Router.prepare do
 
   resources :tags, :identify => :name
 
-  match("/admin").to(:controller => "admin/articles", :action => "index")
+  match("/admin").to(:controller => "admin/articles", :action => "index").name(:admin)
 
   namespace "admin" do
     resources :articles

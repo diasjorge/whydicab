@@ -10,7 +10,9 @@
     <div id="wrap">
       <div id="header">
 	<p id="toplinks">
-	  Skip to: <%= navigation_links %>
+	  <%  if session.authenticated? -%>
+	  <%= link_to "Admin", url(:admin) %> | <%= link_to("Log out", url(:logout)) %>
+	  <% end -%>
 	</p>
 	<br/>
 	<h1><%= link_to "Mr Dias", url(:home) %></h1>
@@ -24,33 +26,11 @@
       </div>
       
       <div id="sidebar">
-	<form method="get" action="/search">
-	  <input type="text" name="q" size="12" maxlength="255" value="" style="float:left;"></input>
-	  <input type="submit" name="search" value="Search" style="float: right;"></input>	  
-	</form>
-	<div style="clear: both"></div>
-	<br />
-	<h2>Links</h2>
-	  <ul>
-	    <%= site_links do |z,w| %>
-	    <li><%= link_to z,w %></li>
-	    <% end =%>
-	  </ul>
-	<% unless @archives.blank? -%>
-	<h2>Archives</h2>
+	<h2>Admin</h2>
 	<ul>
-  	  <%= partial "articles/archive", :with => @archives %>
-	</ul>
-	<% end -%>
-
-	<h2>Tags</h2>
-	<ul id="sidebar_tag_cloud">
-	  <%= partial "tags/tag_cloud" %>
+	  <li><%= link_to "Articles", url(:admin_articles) %></li>
 	</ul>
 	
-	<h2>Powered By</h2>
-	<p>Mr Dias engine</p>
-
 	<!-- End sidebar -->
       </div>
 
@@ -59,7 +39,6 @@
 	<p align="center" class="footer">
 	  &copy; 2008
 	  <a href="http://mrdias.com" title="Mr. Dias">Jorge Dias</a><br />
-	  No part of the content or the blog may be reproduced without prior written permission. <br>
 	</p>
       </div>
 

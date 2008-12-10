@@ -1,6 +1,8 @@
 module Admin
   class Articles < Application
 
+    layout :admin
+
     before :ensure_authenticated
     # provides :xml, :yaml, :js
   
@@ -49,7 +51,7 @@ module Admin
       end
     end
   
-    def destroy(id)
+    def delete(id)
       @article = Article.get(id)
       raise NotFound unless @article
       if @article.destroy
