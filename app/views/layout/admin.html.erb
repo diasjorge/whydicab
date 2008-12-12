@@ -8,16 +8,7 @@
   </head>
   <body onload="sh_highlightDocument();">
     <div id="wrap">
-      <div id="header">
-	<p id="toplinks">
-	  <%  if session.authenticated? -%>
-	  <%= link_to "Admin", url(:admin) %> | <%= link_to("Log out", url(:logout)) %>
-	  <% end -%>
-	</p>
-	<br/>
-	<h1><%= link_to "Mr Dias", url(:home) %></h1>
-	<p id="slogan">He talks about code...</p>
-      </div>
+      <%= partial "common/header" %>
 
       <!-- Begin content -->
       <div id="content">
@@ -34,13 +25,7 @@
 	<!-- End sidebar -->
       </div>
 
-
-      <div id="footer">
-	<p align="center" class="footer">
-	  &copy; 2008
-	  <a href="http://mrdias.com" title="Mr. Dias">Jorge Dias</a><br />
-	</p>
-      </div>
+      <%= partial "common/footer" %>
 
       <!-- End wrapper -->
     </div>

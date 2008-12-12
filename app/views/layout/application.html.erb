@@ -1,22 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
   <head>
-    <title>Mr Dias Blog</title>
+    <title><%= Settings.title %></title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <%= css_include_tag :master, :sh_mrdias %>
     <%= js_include_tag "sh_main.min", "sh_ruby.min" %>
   </head>
   <body onload="sh_highlightDocument();">
     <div id="wrap">
-      <div id="header">
-	<p id="toplinks">
-	  Skip to: <%= navigation_links %>
-	</p>
-	<br/>
-	<h1><%= link_to "Mr Dias", url(:home) %></h1>
-	<p id="slogan">He talks about code...</p>
-      </div>
-
+      <%= partial "common/header" %>
       <!-- Begin content -->
       <div id="content">
 	<%= catch_content :for_layout %>
@@ -49,19 +41,12 @@
 	</ul>
 	
 	<h2>Powered By</h2>
-	<p>Mr Dias engine</p>
+	<p>Whydicab</p>
 
 	<!-- End sidebar -->
       </div>
 
-
-      <div id="footer">
-	<p align="center" class="footer">
-	  &copy; 2008
-	  <a href="http://mrdias.com" title="Mr. Dias">Jorge Dias</a><br />
-	  No part of the content or the blog may be reproduced without prior written permission. <br>
-	</p>
-      </div>
+      <%= partial "common/footer" %>
 
       <!-- End wrapper -->
     </div>

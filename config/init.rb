@@ -24,3 +24,6 @@ Merb::BootLoader.after_app_loads do
 end
 
 require 'lib/archive'
+
+require 'ostruct'
+Settings = OpenStruct.new(YAML::load(File.open("config/settings.yml")))

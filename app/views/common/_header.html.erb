@@ -1,0 +1,11 @@
+<div id="header">
+  <p id="toplinks">
+    Skip to: <%= navigation_links %>
+    <% if session.authenticated? -%>
+    | <%= link_to "Admin", url(:admin) %> | <%= link_to("Log out", url(:logout)) %>
+    <% end -%>
+  </p>
+  <br/>
+  <h1><%= link_to Settings.blog_name, url(:home) %></h1>
+  <p id="slogan"><%= Settings.slogan %></p>
+</div>
