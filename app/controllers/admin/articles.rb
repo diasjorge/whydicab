@@ -50,8 +50,14 @@ module Admin
         display @article, :edit
       end
     end
-  
+
     def delete(id)
+      only_provides :html
+      @article = Article.get(id)
+      render
+    end
+      
+    def destroy(id)
       @article = Article.get(id)
       raise NotFound unless @article
       if @article.destroy
