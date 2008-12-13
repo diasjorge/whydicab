@@ -40,6 +40,17 @@
 	  <%= partial "tags/tag_cloud" %>
 	</ul>
 	
+	<% if Settings.github_username -%>
+	<div id="github-badge"></div>
+	<script type="text/javascript" charset="utf-8">
+	  GITHUB_USERNAME="<%= Settings.github_username %>";
+	  GITHUB_LIST_LENGTH=10;
+	  GITHUB_HEAD="h2"; // e.g. change to "h2" for wordpress sidebars
+	</script>
+	<script src="http://drnicjavascript.rubyforge.org/github_badge/dist/github-badge-launcher.js" type="text/javascript"></script>
+	<% end -%>
+	
+	<br />
 	<h2>Powered By</h2>
 	<p>Whydicab</p>
 

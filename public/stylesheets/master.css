@@ -234,3 +234,11 @@ form.article_form .submit
 }
 
 form.article_form textarea { height: 250px; }
+
+#github-badge {
+font-family: Lucida Grande,Verdana,Tahoma,Arial,sans-serif;
+}
+
+#github-badge .header span {
+font-weight: bold;
+}
