@@ -3,8 +3,8 @@
   <head>
     <title><%= Settings.title %></title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <%= css_include_tag :master, :sh_mrdias %>
-    <%= js_include_tag "sh_main.min", "sh_ruby.min" %>
+    <%= css_include_tag :master, :sh_mrdias, :bundle => true %>
+    <%= js_include_tag "sh_main.min", "sh_ruby.min", "sh_html.min", "sh_javascript.min", "sh_sh.min", :bundle => true %>
   </head>
   <body onload="sh_highlightDocument();">
     <div id="wrap">
@@ -52,7 +52,7 @@
 	
 	<br />
 	<h2>Powered By</h2>
-	<p>Whydicab</p>
+	<p><%= link_to "Whydicab", "http://github.com/diasjorge/whydicab/tree" %></p>
 
 	<!-- End sidebar -->
       </div>
