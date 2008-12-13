@@ -18,5 +18,9 @@
   </em>
   <% end -%>
 </p>
-<br/>
+<p class="small">
+  <% if Settings.disqus_shortname -%>
+    <%= link_to "comments", url(:article, article)+"#disqus_thread" %>
+  <% end -%>
+</p>
 </div>
