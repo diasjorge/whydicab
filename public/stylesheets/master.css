@@ -240,5 +240,7 @@ font-family: Lucida Grande,Verdana,Tahoma,Arial,sans-serif;
 }
 
 #github-badge .header span {
+font-family: Lucida Grande,Verdana,Tahoma,Arial,sans-serif;
 font-weight: bold;
+font-size: inherit;
 }
