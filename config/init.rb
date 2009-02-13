@@ -17,13 +17,15 @@ end
  
 Merb::BootLoader.before_app_loads do
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
+  require 'ostruct'
+  Settings = OpenStruct.new(YAML::load(File.open("config/settings.yml")))
 end
  
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
+  Merb.add_mime_type(:rss, nil, %w[application/rss+xml], :charset => "utf-8")
+  Merb.add_mime_type(:atom, nil, %w[application/atom+xml], :charset => "utf-8")
 end
 
 require 'lib/archive'
 
-require 'ostruct'
-Settings = OpenStruct.new(YAML::load(File.open("config/settings.yml")))

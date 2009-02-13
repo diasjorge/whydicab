@@ -1,0 +1,19 @@
+!!! XML
+%feed{ :xmlns => 'http://www.w3.org/2005/Atom' }
+  %title
+    = Settings.title
+  %link{ :rel => "self", :href => absolute_url(:articles, :atom) }
+  %link{ :href => absolute_url(:home) }
+  %updated= (@articles.any? ? @articles.first.published_at : DateTime.now).strftime("%Y-%m-%dT%H:%M:%SZ")
+  %author
+    %name = Settings.owner
+  %id= absolute_url(:home)
+  - @articles.each do |article|
+    %entry
+      %title
+        = article.title
+      %link{ :href => absolute_url(:article, article) }
+      %id= absolute_url(:article, article)
+      %updated= article.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")
+      %content{:type => "html"}
+        = escape_xml(article.to_html)

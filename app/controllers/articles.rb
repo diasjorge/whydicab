@@ -3,6 +3,7 @@ class Articles < Application
   before :get_archive
 
   def index
+    provides :atom, :rss
     if params[:day]
       @articles = Article.find_by_year_month_day(params[:year], params[:month], params[:day])
     elsif params[:month]
