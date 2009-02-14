@@ -2,7 +2,7 @@
 %rss{ :version => "2.0", :"xmlns:atom" => "http://www.w3.org/2005/Atom" }
   %channel
     %title= Settings.title
-    %atom:link{ :rel => "self", :href => absolute_url(:articles, :atom) }/
+    %atom:link{ :rel => "self", :href => absolute_url(:articles, :rss) }/
     %link= absolute_url(:home)
     %description= Settings.slogan
     %language en-us
