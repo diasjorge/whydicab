@@ -3,6 +3,7 @@ merb_gems_version = "~>1.0"
 dm_gems_version   = "~>0.9.8"
 
 # For more information about each component, please read http://wiki.merbivore.com/faqs/merb_components
+dependency "merb_datamapper", merb_gems_version
 dependency "merb-action-args", merb_gems_version
 dependency "merb-assets", merb_gems_version  
 dependency "merb-cache", merb_gems_version   
