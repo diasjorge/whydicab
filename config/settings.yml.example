@@ -2,5 +2,6 @@ blog_name: "Whydicab"
 title: "Whydicab Blog"
 slogan: "Why did you use this blog?"
 owner: "Whydicab Owner"
-#disqus_shortname: disqus_shortname
-#github_username: github_username
+disqus_shortname: 
+github_username:
+external_feed_url:
