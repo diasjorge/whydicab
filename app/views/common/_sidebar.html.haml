@@ -1,0 +1,32 @@
+%form{ :action => "/search", :method => "get" }
+  %input{ :name => "q", :size => "12", :type => "text", :value => "", :style => "float:left;", :maxlength => "255" }
+  %input{ :name => "search", :type => "submit", :value => "Search", :style => "float: right;" }
+%div{ :style => "clear: both" }
+%br
+%h2
+  Links
+%ul
+  - site_links do |z,w|
+    %li
+      = link_to z,w
+- unless @archives.blank?
+  %h2
+    Archives
+  %ul
+    = partial "articles/archive", :with => @archives
+%h2
+  Tags
+%ul#sidebar_tag_cloud
+  = partial "tags/tag_cloud"
+- if Settings.github_username
+  #github-badge
+  %script{ :type => "text/javascript", :charset => "utf-8" }
+    GITHUB_USERNAME="<haml:loud> Settings.github_username </haml:loud>";
+    GITHUB_LIST_LENGTH=10;
+    GITHUB_HEAD="h2"; // e.g. change to "h2" for wordpress sidebars
+  %script{ :src => "http://drnicjavascript.rubyforge.org/github_badge/dist/github-badge-launcher.js", :type => "text/javascript" }
+%br
+%h2
+  Powered By
+%p
+  = link_to "Whydicab", "http://github.com/diasjorge/whydicab/tree"
