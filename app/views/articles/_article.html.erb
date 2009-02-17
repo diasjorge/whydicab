@@ -1,14 +1,14 @@
 <div id="article_<%= article.id %>">
 <h2>
   <%= link_to article.title, url(:article, article) %> <br/>
-  <span class="entrydate"><%= article.published_at.to_date %></span>
+  <span class="entrydate"><%= article.published_at.strftime("%a, %d %b %Y %X %z") %></span>
 </h2>
 <span class="body">
   <%= article.to_html %>
 </span>
 
 <p class="center small">
-  <em>posted by <%= article.user.login %> @ <%= link_to article.published_at.to_time, url(:article, article) %></em>
+       <em>posted by <%= article.user.login %>, <%= link_to "#{time_ago_in_words(article.published_at)} ago", url(:article, article) %></em>
   <% unless article.tags.empty? -%>
   <br />
   <em>Tags:
