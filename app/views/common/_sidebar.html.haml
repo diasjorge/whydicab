@@ -20,8 +20,8 @@
   = partial "tags/tag_cloud"
 - if Settings.github_username
   #github-badge
-  %script{ :type => "text/javascript", :charset => "utf-8" }
-    GITHUB_USERNAME="<haml:loud> Settings.github_username </haml:loud>";
+  :javascript
+    GITHUB_USERNAME="#{Settings.github_username}";
     GITHUB_LIST_LENGTH=10;
     GITHUB_HEAD="h2"; // e.g. change to "h2" for wordpress sidebars
   %script{ :src => "http://drnicjavascript.rubyforge.org/github_badge/dist/github-badge-launcher.js", :type => "text/javascript" }
