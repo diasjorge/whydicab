@@ -4,6 +4,6 @@
   %ul
     - @archives.each do |archive|
       %li
-        %span.f-right.smaller.low
+        %span
+          = link_to archive[:name], url(:month, archive[:year], archive[:month])
           = pluralize(archive[:article_count], 'post')
-        = link_to archive[:name], url(:month, archive[:year], archive[:month])
