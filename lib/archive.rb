@@ -2,6 +2,7 @@ module Archive
   def self.included(base)
     base.send(:extend, ClassMethods)
   end
+
   module ClassMethods
     def find_by_year(year)
       self.all(:published_at.like => "#{year}%", :published => true, :order => [:published_at.desc])
@@ -32,6 +33,7 @@ module Archive
     end
 
     private
+
     def specific_date_function
       if Merb::Orms::DataMapper.config[:adapter] == "sqlite3"
         "strftime('%Y', published_at) as year, strftime('%m', published_at) as month"

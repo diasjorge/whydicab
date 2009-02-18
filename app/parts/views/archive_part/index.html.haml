@@ -1,0 +1,9 @@
+- unless @archives.blank?
+  %h2
+    Archives
+  %ul
+    - @archives.each do |archive|
+      %li
+        %span.f-right.smaller.low
+          = pluralize(archive[:article_count], 'post')
+        = link_to archive[:name], url(:month, archive[:year], archive[:month])

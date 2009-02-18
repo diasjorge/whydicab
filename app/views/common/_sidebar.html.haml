@@ -9,15 +9,8 @@
   - site_links do |z,w|
     %li
       = link_to z,w
-- unless @archives.blank?
-  %h2
-    Archives
-  %ul
-    = partial "articles/archive", :with => @archives
-%h2
-  Tags
-%ul#sidebar_tag_cloud
-  = partial "tags/tag_cloud"
+= part ArchivePart => :index
+= part TagCloudPart => :index
 - if Settings.github_username
   #github-badge
   :javascript

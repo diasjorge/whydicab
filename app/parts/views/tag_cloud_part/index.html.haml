@@ -1,0 +1,6 @@
+- unless @tags.blank?
+  %h2
+    Tags
+  %ul#sidebar_tag_cloud
+    - tag_cloud @tags, %w(tag1 tag2 tag3 tag4 tag5) do |tag, css_class|
+      = link_to(tag.name, url(:tag, tag), :class => css_class)

@@ -1,6 +1,5 @@
 class Articles < Application
   # provides :xml, :yaml, :js
-  before :get_archive
 
   def index
     provides :atom, :rss
