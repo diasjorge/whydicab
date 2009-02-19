@@ -20,3 +20,5 @@ bin/*
 gems/*
 config/database.yml
 config/settings.yml
+Capfile
+config/deploy.rb
