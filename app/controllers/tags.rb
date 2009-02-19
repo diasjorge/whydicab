@@ -5,7 +5,7 @@ class Tags < Application
     name = Merb::Parse.unescape(name) # Fix for problems with params
     @tag = Tag.first(:name => name)
     raise NotFound unless @tag
-    @articles = Article.tagged_with(name, :published => true).paginate(:page => params[:page], :per_page => 10)
+    @articles = Article.tagged_with(name, :published => true, :order => [:published_at.desc]).paginate(:page => params[:page], :per_page => 10)
     display @articles
   end
 

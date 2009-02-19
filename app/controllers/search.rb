@@ -9,7 +9,7 @@ class Search < Application
       @results = Article.paginate(:conditions => ["(body like ? OR title like ?)",
                                                   "%#{@query}%","%#{@query}%"],
                                   :published => true,
-                                  :order => [:created_at.desc],
+                                  :order => [:published_at.desc],
                                   :per_page => 10,
                                   :page => params[:page])
     end
