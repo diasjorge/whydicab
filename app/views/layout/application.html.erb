@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+  <head>
+    <title><%= Settings.title %></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <%= css_include_tag :master, :sh_mrdias, :bundle => true %>
+    <%= js_include_tag "sh_main.min", "sh_ruby.min", "sh_html.min", "sh_javascript.min", "sh_sh.min", :bundle => true %>
+    <link rel="alternate" type="application/rss+xml" title="Articles RSS" href="<%= Settings.external_feed_url || url(:articles, :rss) %>" />
+    <% if Settings.openid_server -%>
+      <link rel="openid.server" href="<%= Settings.openid_server %>"/>
+    <% end -%>
+    <% if Settings.openid_delegate -%>
+      <link rel="openid.delegate" href="<%= Settings.openid_delegate %>"/>
+    <% end -%>
+  </head>
+  <body onload="sh_highlightDocument();">
+    <div id="wrap">
+      <%= partial "common/header" %>
+      <div id="content">
+	<%= catch_content :for_layout %>
+      </div>
+      <div id="sidebar">
+	<%= partial "common/sidebar" %>
+      </div>
+      <%= partial "common/footer" %>
+    </div>
+    <% if Settings.disqus_shortname -%>
+    <script type="text/javascript">
+	//<[CDATA[
+	(function() {
+		var links = document.getElementsByTagName('a');
+		var query = '?';
+		for(var i = 0; i < links.length; i++) {
+			if(links[i].href.indexOf('#disqus_thread') >= 0) {
+				query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+			}
+		}
+		document.write('<script type="text/javascript" src="http://disqus.com/forums/<%= Settings.disqus_shortname %>/get_num_replies.js' + query + '"></' + 'script>');
+		})();
+	//]]>
+    </script>
+    <% end -%>
+  </body>
+</html>
