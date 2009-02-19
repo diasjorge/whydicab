@@ -7,4 +7,7 @@ github_username:
 external_feed_url:
 openid_server: 
 openid_delegate:
+site_links:
+  "Merb": "http://merbivore.com"
+  "DataMapper": "http://datamapper.org"
 

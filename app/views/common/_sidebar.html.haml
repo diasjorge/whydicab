@@ -6,9 +6,7 @@
 %h2
   Links
 %ul
-  - site_links do |z,w|
-    %li
-      = link_to z,w
+  = sidebar_links
 = part ArchivePart => :index
 = part TagCloudPart => :index
 - if Settings.github_username
