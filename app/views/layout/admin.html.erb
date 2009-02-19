@@ -1,33 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
   <head>
-    <title>Mr Dias Blog</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <%= css_include_tag :master, :sh_mrdias %>
-    <%= js_include_tag "sh_main.min", "sh_ruby.min" %>
+    <%= partial "common/head" %>
   </head>
   <body onload="sh_highlightDocument();">
     <div id="wrap">
       <%= partial "common/header" %>
-
-      <!-- Begin content -->
       <div id="content">
 	<%= catch_content :for_layout %>
-	<!-- End main column -->	
       </div>
-      
       <div id="sidebar">
 	<h2>Admin</h2>
 	<ul>
 	  <li><%= link_to "Articles", url(:admin_articles) %></li>
 	</ul>
-	
-	<!-- End sidebar -->
       </div>
-
       <%= partial "common/footer" %>
-
-      <!-- End wrapper -->
     </div>
   </body>
 </html>
