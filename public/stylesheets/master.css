@@ -1,6 +1,7 @@
 /******** General tags ********/
 body{
-font:70% Lucida Grande,Verdana,Tahoma,Arial,sans-serif;
+font: 78% Helvetica,Verdana,Arial,sans-serif;
+/* font:70% Lucida Grande,Verdana,Tahoma,Arial,sans-serif; */
 background:#ffffff;
 color:#404040;
 line-height:1.2em;
@@ -23,7 +24,7 @@ ul ul,ol ol{margin:4px 0 4px 35px;}
 h1{
 font-size:3.8em;
 letter-spacing:-5px;
-margin:0 0 30px 25px;
+margin:0 0 25px 25px;
 color:#4088b8;
 }
 
@@ -58,14 +59,15 @@ padding:8px;
 /******** Main wrap ********/
 #wrap{
 color:#404040;
-width:740px;
+width:950px;
 margin:10px auto;
 padding:0;
 }
 
 #header{margin:0;padding:0;}
+#header h1 {margin-top: 25px }
 
-#toplinks{text-align:right; padding:5px 2px 2px 3px;margin:0;}
+#toplinks{text-align:right; margin:0; float:right;}
 
 #slogan{
 font-size:1.5em;
@@ -79,7 +81,7 @@ line-height:1.2em;
 /******** sidebar ********/
 #sidebar{
 float:left;
-width:195px;
+width:250px;
 margin:0 0 5px 0;
 padding:1px 0 0 0;
 }
@@ -115,7 +117,7 @@ padding:0;
 /******** Content variations ********/
 #content{
 line-height:1.5em;
-width:500px;
+width:680px;
 float:right;
 text-align:justify;
 margin:0;
@@ -236,10 +238,11 @@ form.article_form .submit
 form.article_form textarea { height: 250px; }
 
 #github-badge {
-font-family: Lucida Grande,Verdana,Tahoma,Arial,sans-serif;
+font-family: Helvetica,Verdana,Arial,sans-serif; 
 }
 
 #github-badge .header span {
-font-family: Lucida Grande,Verdana,Tahoma,Arial,sans-serif;
+font-family: Helvetica,Verdana,Arial,sans-serif; 
 font-weight: bold;
+font-size: 1em;
 }
