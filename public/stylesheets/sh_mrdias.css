@@ -1,6 +1,8 @@
 pre.sh_sourceCode {
   background-color: #EEEEEE;
   color: #656565;
+  font-size: 100% !important;
+  font-size: 80%; /* FOR IE */
   font-weight: normal;
   font-style: normal;
   border: 1px dotted;
