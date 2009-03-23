@@ -12,13 +12,31 @@ class Articles < Application
     else
       @articles = Article.find_recent
     end
-    display @articles
+    etag_cache(Article.first(:order => [:updated_at.desc]), "all")
+    cache_or_display(@articles)
   end
 
   def show(permalink)
     @article = Article.first(:permalink => Merb::Parse.unescape(permalink))
     raise NotFound unless @article
-    display @article
+    etag_cache(@article)
+    cache_or_display(@article)
   end
+
+  private
+
+    def cache_or_display(resource)
+      if request_fresh?
+        self.status = 304
+        return ""
+      else
+        display resource
+      end
+    end
+
+    def etag_cache(resource, key = "")
+      self.etag = Digest::SHA1.hexdigest(key << resource.title)
+      self.last_modified = resource.updated_at
+    end
 
 end # Articles
