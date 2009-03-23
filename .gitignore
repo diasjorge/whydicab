@@ -22,3 +22,4 @@ config/database.yml
 config/settings.yml
 Capfile
 config/deploy.rb
+*.old

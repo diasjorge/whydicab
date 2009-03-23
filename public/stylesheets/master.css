@@ -12,7 +12,6 @@ padding:0;
 a{
 text-decoration:none;
 color:#4088b8;
-font-weight:bold;
 }
 
 a:hover{text-decoration:underline;}
@@ -206,7 +205,7 @@ div.row
 { clear: both;
 }
 
-div.row label 
+div.row label
 { float: left;
   width: 80px;
   text-align: left;
@@ -222,13 +221,13 @@ div.spacer
 
 
 form.article_form input, textarea
-{ 
+{
   width: 400px;
   margin: 2px;
 }
 
 form.article_form .submit
-{ font-size: 100%; 
+{ font-size: 100%;
   float: right;
   width: 90px;
   height: 22px;
@@ -238,11 +237,20 @@ form.article_form .submit
 form.article_form textarea { height: 250px; }
 
 #github-badge {
-font-family: Helvetica,Verdana,Arial,sans-serif; 
+font-family: Helvetica,Verdana,Arial,sans-serif;
 }
 
 #github-badge .header span {
-font-family: Helvetica,Verdana,Arial,sans-serif; 
+font-family: Helvetica,Verdana,Arial,sans-serif;
 font-weight: bold;
 font-size: 1em;
+}
+
+#github-badge .repos .public {
+background-color:#FFF;
+border: 0px;
+}
+
+#github-badge .repos .public a {
+background-color:#FFF;
 }
